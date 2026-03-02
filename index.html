@@ -120,6 +120,8 @@
     }
 
     .photo-2 { grid-template-columns: repeat(2, 1fr); }
+    .photo-a { grid-template-columns: 0.8fr 1.2fr; }
+    .photo-b { grid-template-columns: 1.2fr 0.8fr; }
 
     .photo-row img {
       width: 100%;
@@ -131,13 +133,13 @@
     }
 
     .photo-row.photo-2 img {
-      height: clamp(260px, 27vw, 350px);
+      height: clamp(320px, 33vw, 440px);
     }
 
-    .photo-row .p6124 { object-position: 58% 22%; }
-    .photo-row .p6125 { object-position: 54% 28%; }
-    .photo-row .p6126 { object-position: 50% 20%; }
-    .photo-row .p6127 { object-position: 50% 18%; }
+    .photo-row .p6124 { object-position: 62% 24%; }
+    .photo-row .p6125 { object-position: 52% 31%; }
+    .photo-row .p6126 { object-position: 66% 34%; }
+    .photo-row .p6127 { object-position: 50% 22%; }
 
     .photo-mosaic {
       background: linear-gradient(180deg, #fffdfa 0%, #faf4ea 100%);
@@ -254,7 +256,11 @@
     }
 
     @media (max-width: 560px) {
-      .photo-row.photo-2 img { height: 240px; }
+      .photo-row.photo-2 img { height: 300px; }
+      .photo-row .p6124 { object-position: 58% 20%; }
+      .photo-row .p6125 { object-position: 50% 24%; }
+      .photo-row .p6126 { object-position: 64% 25%; }
+      .photo-row .p6127 { object-position: 50% 15%; }
       .photo-mosaic { grid-template-columns: 1fr; grid-auto-rows: 300px; }
       .photo-mosaic .m1 { object-position: 72% 30%; }
       .photo-mosaic .m2 { object-position: 46% 20%; }
@@ -287,7 +293,7 @@
       <p>Я в разводе, детей нет.</p>
     </section>
 
-    <section class="photo-row photo-2">
+    <section class="photo-row photo-2 photo-a">
       <img src="IMG_6124.jpg" alt="Фото Александра" class="p6124" width="828" height="1100" loading="lazy" decoding="async" fetchpriority="low">
       <img src="IMG_6125.jpg" alt="Фото Александра" class="p6125" width="828" height="1102" loading="lazy" decoding="async" fetchpriority="low">
     </section>
@@ -333,7 +339,7 @@
       </div>
     </section>
 
-    <section class="photo-row photo-2">
+    <section class="photo-row photo-2 photo-b">
       <img src="IMG_6126.jpg" alt="Фото Александра" class="p6126" width="828" height="1090" loading="lazy" decoding="async" fetchpriority="low">
       <img src="IMG_6127.jpg" alt="Фото Александра" class="p6127" width="828" height="1095" loading="lazy" decoding="async" fetchpriority="low">
     </section>
