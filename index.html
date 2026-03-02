@@ -123,11 +123,15 @@
 
     .photo-row img {
       width: 100%;
-      min-height: 240px;
+      min-height: 0;
       object-fit: cover;
       border-radius: 15px;
       border: 1px solid var(--line);
       display: block;
+    }
+
+    .photo-row.photo-2 img {
+      height: clamp(260px, 27vw, 350px);
     }
 
     .photo-row .p6124 { object-position: 58% 22%; }
@@ -250,7 +254,7 @@
     }
 
     @media (max-width: 560px) {
-      .photo-row img { min-height: 250px; }
+      .photo-row.photo-2 img { height: 240px; }
       .photo-mosaic { grid-template-columns: 1fr; grid-auto-rows: 300px; }
       .photo-mosaic .m1 { object-position: 72% 30%; }
       .photo-mosaic .m2 { object-position: 46% 20%; }
