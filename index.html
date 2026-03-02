@@ -50,12 +50,18 @@
       overflow: hidden;
       margin-bottom: 22px;
       box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
     }
 
-    .hero img {
+    .hero-media {
+      min-height: 420px;
+    }
+
+    .hero-media img {
       width: 100%;
-      min-height: 400px;
-      max-height: 620px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -113,7 +119,6 @@
     }
 
     .photo-2 { grid-template-columns: repeat(2, 1fr); }
-    .photo-3 { grid-template-columns: repeat(3, 1fr); }
 
     .photo-row img {
       width: 100%;
@@ -192,13 +197,26 @@
     @media (max-width: 980px) {
       .criteria-grid { grid-template-columns: 1fr; }
       .photo-2,
-      .photo-3 { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-media { min-height: 300px; }
+      .photo-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 180px;
+      }
+      .photo-mosaic .m1,
+      .photo-mosaic .m2,
+      .photo-mosaic .m3,
+      .photo-mosaic .m4,
+      .photo-mosaic .m5 {
+        grid-column: auto;
+        grid-row: auto;
+      }
       .cta { grid-template-columns: 1fr; }
-      .hero img { min-height: 290px; }
     }
 
     @media (max-width: 560px) {
       .photo-row img { min-height: 215px; }
+      .photo-mosaic { grid-template-columns: 1fr; grid-auto-rows: 220px; }
       .btn { font-size: 18px; }
     }
   </style>
@@ -206,7 +224,9 @@
 <body>
   <main class="wrap">
     <section class="hero">
-      <img src="IMG_6123.jpg" alt="Александр">
+      <div class="hero-media">
+        <img src="IMG_6123.jpg" alt="Александр">
+      </div>
       <div class="hero-text">
         <h1>Добро пожаловать на мой сайт, созданный для поиска второй половины</h1>
         <p>Личная история, ценности и взгляд на отношения — открыто и по делу.</p>
@@ -235,7 +255,7 @@
       <div class="criteria-grid">
         <article class="card">
           <h3>✨ Симпатичная</h3>
-          <p>Симпатичная.  Мне нравится стройная девушка ростом примерно 160–175 см, с гармоничным телосложением, желательно 2-3 размер груди. Важна естественная привлекательность и ухоженность. Предпочитаю блондинок, особенно с голубыми глазами — это мой любимый тип внешности.</p>
+          <p>Мне нравятся стройные девушки ростом примерно 160–175 см, с гармоничным телосложением, желательно 2-3 размер груди. Важна естественная привлекательность и ухоженность. Предпочитаю блондинок, особенно с голубыми глазами — это мой любимый тип внешности.</p>
           <p>Очень ценю здоровый образ жизни: если ты следишь за собой, занимаешься спортом и любишь активность — это большой плюс. Для меня важно, чтобы дома было уютно и спокойно: я люблю засыпать в тишине (без телевизора) и надеюсь, ты тоже 🙂 И да, я очень люблю обниматься — так что «обнимашки» обязательны.</p>
           <p>Пишу конкретно не из придирчивости, а потому что понимаю, кто мне действительно подходит. При этом, если ты не полностью соответствуешь описанию, но чувствуешь отклик и считаешь себя привлекательной — обязательно пиши. Живое чувство всегда важнее формальных критериев.</p>
           <p>Что для меня принципиально: я не рассматриваю отношения с теми, кто курит (включая вейпы), употребляет наркотики или злоупотребляет алкоголем. Также мне сложно будет с человеком, который не любит спорт, не ведёт активный образ жизни и не имеет целей или стремлений.</p>
@@ -252,7 +272,7 @@
 
         <article class="card">
           <h3>🎯 Целеустремленная</h3>
-          <p>Целеустремленная - Мне близка зрелая, самодостаточная женщина, которая уже чего-то добилась или уверенно идёт к своим целям. Та, которой по-настоящему интересна жизнь, которая умеет мечтать, строить планы и воплощать их в реальность. Я ищу не просто отношения, а союз — партнёрство, где мы вместе реализуем общие цели и создаём крепкую семью.</p>
+          <p>Мне близка зрелая, самодостаточная женщина, которая уже чего-то добилась или уверенно идёт к своим целям. Та, которой по-настоящему интересна жизнь, которая умеет мечтать, строить планы и воплощать их в реальность. Я ищу не просто отношения, а союз — партнёрство, где мы вместе реализуем общие цели и создаём крепкую семью.</p>
           <p>Мне особенно импонируют женщины из медицины или бизнеса — мне близок этот образ мышления, ответственность и масштаб.</p>
           <p>При этом важно сказать честно: если тебе нужен только штамп в паспорте, материальная выгода, недвижимость или обеспечение — нам точно не по пути. Я за союз по любви, уважению и общим ценностям, а не по расчёту.</p>
           <p>Если ты ищешь партнёра, а не спонсора — тогда нам действительно есть о чём поговорить.</p>
@@ -292,15 +312,12 @@
       </ul>
     </section>
 
-    <section class="photo-row photo-3">
-      <img src="IMG_6129.jpg" alt="Фото Александра">
-      <img src="IMG_6130.jpg" alt="Фото Александра">
-      <img src="IMG_6131.jpg" alt="Фото Александра">
-    </section>
-
-    <section class="photo-row photo-2">
-      <img src="IMG_6132.jpg" alt="Фото Александра">
-      <img src="IMG_6133.jpg" alt="Фото Александра">
+    <section class="photo-mosaic">
+      <img src="IMG_6129.jpg" alt="Фото Александра" class="m1">
+      <img src="IMG_6130.jpg" alt="Фото Александра" class="m2">
+      <img src="IMG_6131.jpg" alt="Фото Александра" class="m3">
+      <img src="IMG_6132.jpg" alt="Фото Александра" class="m4">
+      <img src="IMG_6133.jpg" alt="Фото Александра" class="m5">
     </section>
 
     <section class="block">
@@ -316,3 +333,30 @@
   </main>
 </body>
 </html>
+    .photo-mosaic {
+      background: linear-gradient(180deg, #fffdfa 0%, #faf4ea 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-auto-rows: 120px;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .photo-mosaic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    .photo-mosaic .m1 { grid-column: span 5; grid-row: span 2; }
+    .photo-mosaic .m2 { grid-column: span 3; }
+    .photo-mosaic .m3 { grid-column: span 4; }
+    .photo-mosaic .m4 { grid-column: span 3; }
+    .photo-mosaic .m5 { grid-column: span 4; }
