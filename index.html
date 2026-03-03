@@ -480,6 +480,9 @@
       document.getElementById("pinGate").hidden = true;
       document.getElementById("siteContent").hidden = false;
       sessionStorage.setItem("pin_ok", "1");
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
     }
 
     async function tryUnlock(pin, expectedHash) {
